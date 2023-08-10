@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>Vite + TS</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="app" >
+      <div class="center"><h1>Note Manager</h1></div>
+      
+      <div class="navbar">
+      <input type="text"  id="txtSearch" placeholder="Search a Note">
+
+      <!-- <div id="searched">
+      </div> -->
+      <br>
+      <p id="p_deleted"></p>
+      <div class="custom-select">
+        <select name="sordDD" id="sordDD">
+          <option value="date">Sort by Creation Date</option>
+          <option value="do_to_date">Sort by Due To Date</option>
+          <option value="alphabet">Sort Alphabeticly</option>
+        </select>
+      </div>
+      <button id="clear" class="btn clear">Clear All Notes</button>
+      </div>
+    </div>
+      <div class="center">
+        <div class="form-container" id="form-container">
+          <form id="createNote" action="">
+            <h2>Create a Note</h2>
+            <div class="form-group">
+              <div class="input-group">
+                <label for="title">Title</label>
+                <input type="text" id="titleInput">
+              </div>
+              <div class="input-group">
+                <label for="text">Body</label>
+                <textarea name="" id="textInput" cols="30" rows="4"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <label for="do_to_date">Do To Date (optional)</label>
+                <input type="date" id="do_to_date" name="do_to_date">
+              </div>
+              <div class="input-group">
+                <label for="colors">Note's Color</label>
+                <div class="color-buttons">
+                  <select name="colorDD" id="colorDD">
+                    <option value="red" id="red">Red</option>
+                    <option value="blue" id="blue">Blue</option>
+                    <option value="green" id="green">Green</option>
+                    <option value="yellow" id="yellow">Yellow</option>
+                    <option value="white" id="white">White</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+              <div class="center">
+                <button id="submiting" class="btn add" type="submit">Submit</button>
+              </div>
+            
+          </form>
+        </div>
+        </div>
+
+      <div id="grid"></div>
+    </div>
+    <div class="confirmation-dialog">
+      <p>Are you sure you want to clear all the notes?</p>
+      <div class="confirmation-buttons">
+        <button id="confirmYes" class="btn confirm-btn">Yes</button>
+        <button id="confirmNo" class="btn cancel-btn">No</button>
+      </div>
+    </div>
+    
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,300 @@
+body{
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+*{
+    margin: 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+h1{
+    margin: 10vh;
+}
+.center{
+    text-align: center;
+}
+
+.red{
+    background-color: #F31559;
+}
+.blue{
+    background-color: #75C2F6;
+}
+.green{
+    background-color: #C3EDC0;
+}
+.yellow{
+    background-color: #F4D160;
+}
+.white{
+    background-color: #F5F5F5;
+}
+
+
+#grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+.note{
+    padding: 20px;
+}
+label{
+    display: block;
+}
+
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #ffc107;
+    transition: background-color 0.2s;
+}
+.btn:hover {
+    background-color: #d39e00;
+}
+
+.btn.delete {
+    background-color: transparent;
+    float: right;
+    font-size: medium;
+    border: 1px solid #fff;
+    padding: 2px;
+}
+
+.btn.delete:hover {
+    background-color: #fff;
+}
+
+.btn.clear {
+    background-color: #ffc107;
+}
+
+.btn.clear:hover {
+    background-color: #d39e00;
+}
+
+.form-container {
+background-color: #fff;
+padding: 20px;
+border-radius: 5px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+width: 80%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.input-group {
+flex: 1;
+display: flex;
+flex-direction: column;
+margin-right: 10px;
+}
+
+input, textarea{
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+
+.color-buttons {
+display: flex;
+gap: 10px;
+margin-top: 5px;
+width: 40vw;
+}
+
+
+
+.app{
+    text-align: center;
+}
+
+label {
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+.custom-select {
+position: relative;
+overflow: hidden;
+border: 1px solid #ccc;
+border-radius: 4px;
+;
+}
+
+select {
+width: 100%;
+color: #ccc;
+text-align: center;
+padding: 8px;
+font-size: 16px;
+border: none;
+background-color: #333;
+cursor: pointer;
+appearance: none; /* Remove default arrow on some browsers */
+}
+
+select:focus {
+outline: none;
+}
+
+/* Custom arrow icon */
+.custom-select::after {
+content: '\25BE'; /* Down arrow */
+position: absolute;
+top: 50%;
+right: 10px;
+transform: translateY(-50%);
+pointer-events: none;
+}
+
+/* Styling the options */
+option {
+padding: 8px;
+}
+
+option:hover {
+background-color: #f0f0f0;
+}
+
+/* Styling the selected option */
+option:checked {
+background-color: #007bff;
+color: #fff;
+}
+
+/* Styling the dropdown when opened */
+select:focus + .custom-select::after {
+content: '\25B4'; /* Up arrow */
+}
+.confirmation-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    display: none; /* Hide the dialog by default */
+}
+
+.confirmation-dialog p {
+margin: 0;
+margin-bottom: 10px;
+}
+
+.confirmation-buttons {
+display: flex;
+justify-content: center;
+gap: 10px;
+}
+.confirm-btn {
+    background-color: #333;
+    color: #fff;
+}
+
+.cancel-btn {
+background-color: #333;
+color: #fff;
+}
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+    position: fixed; 
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+}
+
+.navbar a {
+float: left;
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+
+.navbar a:hover {
+background-color: #ddd;
+color: black;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 600px) {
+    body {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #app {
+        margin: 0;
+        padding: 20px;
+    }
+
+    .navbar {
+        width: 100%;
+        flex-direction: column;
+    }    
+
+    #grid{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    h1{
+        margin-top: 30vh;
+    }
+    .form-container{
+        flex-direction: column;
+        width: 100%;
+    }
+    .form-group{
+        flex-direction: column;
+    }
+    #colorDD{
+        margin-left: 20vw;
+    }
+    
+}
+@media screen and (min-width: 1200px) {
+    body {
+        align-items: center;
+    }
+    
+    #app {
+        width: 80%;
+        margin: 50px auto; /* Adjust the margin value as needed */
+    }
+    #grid {
+        grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns */
+    }
+    h1 {
+        font-size: 2.5rem; /* Adjust the font size */
+    }
+    #colorDD{
+        width: 25vw;
+        margin-left: 10vw;
+    }
+}
