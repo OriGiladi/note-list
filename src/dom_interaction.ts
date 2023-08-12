@@ -91,8 +91,11 @@ export function displayNotesFunc(
                 noteDiv.classList.add("white");
         }
         gridDiv.appendChild(noteDiv);
-        render()
-        const delete_btn: HTMLButtonElement = document.createElement("button");
+        render(note, noteDiv) // renders the structured note
+    });
+}
+function render(note: Note, noteDiv: HTMLDivElement){
+    const delete_btn: HTMLButtonElement = document.createElement("button");
         delete_btn.textContent = "🗑️";
         delete_btn.addEventListener("click", () => {
             deleteNote(note.title);
@@ -123,40 +126,6 @@ export function displayNotesFunc(
                 noteDiv.appendChild(lblDoToDate);
             }
         }
-    });
-}
-function render(){
-    // const delete_btn: HTMLButtonElement = document.createElement("button");
-    //     delete_btn.textContent = "🗑️";
-    //     delete_btn.addEventListener("click", () => {
-    //         deleteNote(note.title);
-    //     });
-    //     delete_btn.classList.add("delete");
-    //     delete_btn.classList.add("btn");
-    //     noteDiv.appendChild(delete_btn);
-
-    //     const h3Title = document.createElement("h1");
-    //     h3Title.textContent = ` ${note.title} `;
-    //     noteDiv.appendChild(h3Title);
-
-    //     const pBody = document.createElement("h3");
-    //     pBody.textContent = `${note.content.body} `;
-    //     noteDiv.appendChild(pBody);
-
-    //     const lblDate = document.createElement("label");
-    //     lblDate.textContent = `Creation Date: ${parseDate(
-    //         note.content.creation_date
-    //     )} `;
-    //     noteDiv.appendChild(lblDate);
-    //     if (note.content.do_to_date !== undefined) {
-    //         if (note.content.do_to_date !== null) {
-    //             const lblDoToDate = document.createElement("label");
-    //             lblDoToDate.textContent = `Target Date: ${parseDate(
-    //                 note.content.do_to_date
-    //             )} `;
-    //             noteDiv.appendChild(lblDoToDate);
-    //         }
-    //     }
 }
 
 export function showConfirmationDialog() {
