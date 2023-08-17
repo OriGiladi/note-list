@@ -12,7 +12,6 @@ export class DataInteraction {
       console.log("there's no note body");
       return false;
     } else if (localStorage.getItem(this.title) !== null) {
-      console.log("There is already a note with this name");
       return false;
     } else {
       localStorage.setItem(this.title, JSON.stringify(note));

@@ -5,15 +5,11 @@ import { do_to_date_Input } from "./main";
 import { noteColor } from "./main";
 import { DataInteraction } from "./data_interaction";
 import { note_obj } from "./main";
-// import { searchInput } from "./main";
-// import { searchDiv } from "./main";
-// import { pDeleted } from "./main";
 import { parseDate } from "./main";
 import { ListSort } from "./list_sort";
 import { divGrid } from "./main";
 import { Note } from "./main";
 import { gridDiv } from "./main";
-// import { divContainer } from "./main";
 import { confirmationDialog } from "./main";
 import { sortDropDown } from "./main";
 
