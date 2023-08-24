@@ -1,5 +1,9 @@
 import { note_obj } from "./main";
 import { Note } from "./main";
+
+export function LocalHostClear() { // clears all the notes
+  localStorage.clear();
+}
 export class DataInteraction {
   private title: string;
 
@@ -16,6 +20,8 @@ export class DataInteraction {
   LocalHostDelete(): void{ // Delete a note from localStorage using the current title
     localStorage.removeItem(this.title);
   }
+
+
 
   addNote(note: note_obj): boolean { // Add a new note if body is not empty and note with the current title doesn't exist
     if (note.body === "") {

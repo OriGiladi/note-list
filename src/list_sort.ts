@@ -5,9 +5,9 @@ export class ListSort{
         this.dataList = dataList;
     }
 
-    SortByAlphabet() : Note[]{
-        const copyed_data_list: Note[] = [...this.dataList];
-        const sorted: Note[] = copyed_data_list.sort((a, b) => {
+    SortByAlphabet() : Note[]{ // Sorts the list of notes alphabetically by their titles
+        const copyedDataList: Note[] = this.getCopiedDataList();
+        const sorted: Note[] = copyedDataList.sort((a, b) => {
             const titleA = a.title.toLowerCase();
             const titleB = b.title.toLowerCase();
             if (titleA < titleB) return -1;
@@ -17,28 +17,32 @@ export class ListSort{
         return sorted;
     }
 
-    SortByDate(): Note[]{
-        const copyed_data_list: Note[] = [...this.dataList];
-        const sorted: Note[] = copyed_data_list.sort((a, b) =>
+    SortByDate(): Note[]{   // Sorts the list of notes by their creation dates in descending order
+        const copyedDataList: Note[] = this.getCopiedDataList();
+        const sorted: Note[] = copyedDataList.sort((a, b) =>
         new Date(b.content.creation_date).getTime() - new Date(a.content.creation_date).getTime());
         return sorted;
     }
-    SortByDueToDate(): Note[]{
-        const copyed_data_list: Note[] = [...this.dataList];
-        let filtered_data_list: Note[] = []
-        for(let item in copyed_data_list)
+    SortByDueToDate(): Note[]{     // Sorts the list of notes by their due-to dates in ascending order,
+        // filtering out notes with undefined or null due-to dates
+        const copyedDataList: Note[] = this.getCopiedDataList();
+        let filteredDataList: Note[] = []
+        for(let item in copyedDataList)
         {
-            if(copyed_data_list[item].content.do_to_date !== undefined)
+            if(copyedDataList[item].content.do_to_date !== undefined)
             {
-                if(copyed_data_list[item].content.do_to_date !== null)
-                    filtered_data_list.push(copyed_data_list[item]);
+                if(copyedDataList[item].content.do_to_date !== null)
+                    filteredDataList.push(copyedDataList[item]);
             }         
         }
-        const sorted: Note[] = filtered_data_list.sort((a, b) => {
+        const sorted: Note[] = filteredDataList.sort((a, b) => {
             const dateA: number = new Date(a.content.do_to_date as Date).getTime();
             const dateB: number = new Date(b.content.do_to_date as Date).getTime();
             return  dateA - dateB;
             });
         return sorted;
     }
+    getCopiedDataList(){
+        return  [...this.dataList]
+    } 
 }

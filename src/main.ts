@@ -1,6 +1,6 @@
 import { createNote } from "./dom_interaction";
 // import { searchNote } from "./dom_interaction";
-import { clearNote } from "./dom_interaction";
+import { LocalHostClear } from "./data_interaction";
 // import { deleteNote } from "./dom_interaction";
 import { displayNotesFunc } from "./dom_interaction";
 import { hideConfirmationDialog } from "./dom_interaction";
@@ -132,7 +132,7 @@ btnClear.addEventListener("click", () => {
 });
 
 confirmYesBtn.addEventListener("click", () => {
-    clearNote();
+    LocalHostClear();
     hideConfirmationDialog();
 });
 
