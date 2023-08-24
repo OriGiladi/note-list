@@ -1,16 +1,16 @@
-import { searchInput, textInput } from "./main";
-import { titleInput } from "./main";
-import { doDueDateInput } from "./main";
+import { searchInput, textInput } from "./constants";
+import { titleInput } from "./constants";
+import { doDueDateInput } from "./constants";
 import { noteColor } from "./main";
 import { DataInteraction } from "./data_interaction";
 import { note_obj } from "./types";
 import { parseDate } from "./main";
 import { ListSort } from "./list_sort";
-import { divGrid } from "./main";
+import { divGrid } from "./constants";
 import { Note } from "./types";
-import { gridDiv } from "./main";
-import { confirmationDialog } from "./main";
-import { sortDropDown } from "./main";
+import { gridDiv } from "./constants";
+import { confirmationDialog } from "./constants";
+import { sortDropDown } from "./constants";
 
 ///////////////////////////////////////////////////
 
