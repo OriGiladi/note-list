@@ -1,5 +1,5 @@
-import { note_obj } from "./main";
-import { Note } from "./main";
+import { note_obj } from "./types";
+import { Note } from "./types";
 
 export function LocalHostClear() { // clears all the notes
   localStorage.clear();

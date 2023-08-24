@@ -42,7 +42,7 @@ export class ListSort{
             });
         return sorted;
     }
-    getCopiedDataList(){
-        return  [...this.dataList]
+    getCopiedDataList(){ // just copies the dataList
+        return  [...this.dataList];
     } 
 }

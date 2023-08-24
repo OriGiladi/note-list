@@ -1,13 +1,13 @@
 import { searchInput, textInput } from "./main";
 import { titleInput } from "./main";
-import { do_to_date_Input } from "./main";
+import { doDueDateInput } from "./main";
 import { noteColor } from "./main";
 import { DataInteraction } from "./data_interaction";
-import { note_obj } from "./main";
+import { note_obj } from "./types";
 import { parseDate } from "./main";
 import { ListSort } from "./list_sort";
 import { divGrid } from "./main";
-import { Note } from "./main";
+import { Note } from "./types";
 import { gridDiv } from "./main";
 import { confirmationDialog } from "./main";
 import { sortDropDown } from "./main";
@@ -23,7 +23,7 @@ export function createNote(): void {
     newNote.creation_date = today;
     newNote.body = textInput.value;
     newNote.color = noteColor;
-    newNote.do_to_date = new Date(do_to_date_Input.value);
+    newNote.do_to_date = new Date(doDueDateInput.value);
     console.log(newNote.do_to_date);
     const di = new DataInteraction(titleInput.value);
     if (di.addNote(newNote))
