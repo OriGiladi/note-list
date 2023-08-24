@@ -1,4 +1,3 @@
-// import { form } from "./main";
 import { searchInput, textInput } from "./main";
 import { titleInput } from "./main";
 import { do_to_date_Input } from "./main";
@@ -19,15 +18,15 @@ let notes_list: Note[] = [];
 
 // creates new note:
 export function createNote(): void {
-    const new_note: note_obj = {} as note_obj;
+    const newNote: note_obj = {} as note_obj;
     const today: Date = new Date();
-    new_note.creation_date = today;
-    new_note.body = textInput.value;
-    new_note.color = noteColor;
-    new_note.do_to_date = new Date(do_to_date_Input.value);
-    console.log(new_note.do_to_date);
+    newNote.creation_date = today;
+    newNote.body = textInput.value;
+    newNote.color = noteColor;
+    newNote.do_to_date = new Date(do_to_date_Input.value);
+    console.log(newNote.do_to_date);
     const di = new DataInteraction(titleInput.value);
-    if (di.addNote(new_note))
+    if (di.addNote(newNote))
         console.log(`title: ${di.getTitle()}, body:  ${di.search()}`);
     searchInput.value = "";
     displayNotesFunc(sortDropDown.value, searchInput.value);
@@ -90,7 +89,7 @@ export function displayNotesFunc(
         render(note, noteDiv) // renders the structured note
     });
 }
-function render(note: Note, noteDiv: HTMLDivElement){
+function render(note: Note, noteDiv: HTMLDivElement){ // renders the structured note
     const delete_btn: HTMLButtonElement = document.createElement("button");
         delete_btn.textContent = "🗑️";
         delete_btn.addEventListener("click", () => {
@@ -124,14 +123,11 @@ function render(note: Note, noteDiv: HTMLDivElement){
         }
 }
 
-export function showConfirmationDialog() {
+export function showConfirmationDialog() { // shows the clear note confirmation dialog
     confirmationDialog.style.display = "block";
 }
 
-export function hideConfirmationDialog() {
+export function hideConfirmationDialog() {  // hides the clear note confirmation dialog
     confirmationDialog.style.display = "none";
 }
 
-export function clearNote() {
-    localStorage.clear();
-}
