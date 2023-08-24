@@ -40,6 +40,17 @@ export const confirmNoBtn: HTMLButtonElement = document.getElementById(
     "confirmNo"
 ) as HTMLButtonElement;
 
+export const errorDialog: HTMLDivElement = document.querySelector(
+    ".error-dialog"
+) as HTMLDivElement;
+export const errorDialogOK: HTMLButtonElement = document.getElementById(
+    "confirm"
+) as HTMLButtonElement;
+export const pErrorDisplay: HTMLButtonElement = document.getElementById(
+    "error-display"
+) as HTMLButtonElement;
+
+
 export const sortDropDown: HTMLSelectElement = document.getElementById(
     "sordDD"
 ) as HTMLSelectElement;
