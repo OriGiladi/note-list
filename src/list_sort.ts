@@ -1,4 +1,4 @@
-import { Note } from "./main"
+import { Note } from "./types"
 export class ListSort{
     private dataList: Note[];
     constructor(dataList: Note[]){
@@ -26,15 +26,10 @@ export class ListSort{
     SortByDueToDate(): Note[]{     // Sorts the list of notes by their due-to dates in ascending order,
         // filtering out notes with undefined or null due-to dates
         const copyedDataList: Note[] = this.getCopiedDataList();
-        let filteredDataList: Note[] = []
-        for(let item in copyedDataList)
-        {
-            if(copyedDataList[item].content.do_to_date !== undefined)
-            {
-                if(copyedDataList[item].content.do_to_date !== null)
-                    filteredDataList.push(copyedDataList[item]);
-            }         
-        }
+
+        const filteredDataList: Note[] = copyedDataList.filter(item =>
+            item.content.do_to_date !== undefined && item.content.do_to_date !== null
+        );
         const sorted: Note[] = filteredDataList.sort((a, b) => {
             const dateA: number = new Date(a.content.do_to_date as Date).getTime();
             const dateB: number = new Date(b.content.do_to_date as Date).getTime();
