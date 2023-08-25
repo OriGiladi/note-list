@@ -11,6 +11,8 @@ import { Note } from "./types";
 import { gridDiv } from "./constants";
 import { confirmationDialog } from "./constants";
 import { sortDropDown } from "./constants";
+import { errorDialog, pErrorDisplay } from "./constants";
+
 
 ///////////////////////////////////////////////////
 
@@ -24,10 +26,14 @@ export function createNote(): void {
     newNote.body = textInput.value;
     newNote.color = noteColor;
     newNote.do_to_date = new Date(doDueDateInput.value);
-    console.log(newNote.do_to_date);
     const di = new DataInteraction(titleInput.value);
-    if (di.addNote(newNote))
-        console.log(`title: ${di.getTitle()}, body:  ${di.search()}`);
+    const addingNoteResult: string = di.addNote(newNote);
+    if (addingNoteResult !== "true")// the note isn't valid
+    {
+        pErrorDisplay.textContent = addingNoteResult;
+        showErrorDialog();
+
+    } 
     searchInput.value = "";
     displayNotesFunc(sortDropDown.value, searchInput.value);
 }
@@ -123,11 +129,18 @@ function render(note: Note, noteDiv: HTMLDivElement){ // renders the structured 
         }
 }
 
-export function showConfirmationDialog() { // shows the clear note confirmation dialog
+export function showConfirmationDialog(): void  { // shows the clear note confirmation dialog
     confirmationDialog.style.display = "block";
 }
 
-export function hideConfirmationDialog() {  // hides the clear note confirmation dialog
+export function hideConfirmationDialog(): void  {  // hides the clear note confirmation dialog
     confirmationDialog.style.display = "none";
+}
+function showErrorDialog(): void { // shows the adding form error dialog
+    errorDialog.style.display = "block";
+}
+
+export function hideErrorDialog(): void {  // hides the adding form error dialog
+    errorDialog.style.display = "none";
 }
 
