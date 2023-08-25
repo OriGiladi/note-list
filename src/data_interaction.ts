@@ -23,14 +23,14 @@ export class DataInteraction {
 
 
 
-  addNote(note: note_obj): boolean { // Add a new note if body is not empty and note with the current title doesn't exist
-    if (note.body === "") {
-      return false;
-    } else if (this.LocalHostGet() !== null) {
-      return false;
+  addNote(note: note_obj): string { // Add a new note if body is not empty and note with the current title doesn't exist
+    if (note.body === "") { //the note is empty
+      return "Your note's body is empty";
+    } else if (this.LocalHostGet() !== null) { // there is already such title
+      return "Your note needs a distinctive title";
     } else {
       this.LocalHostSet(note);
-      return true;
+      return "true";
     }
   }
 

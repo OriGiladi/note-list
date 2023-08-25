@@ -11,6 +11,8 @@ import { confirmNoBtn } from "./constants";
 import { confirmYesBtn } from "./constants";
 import { btnClear } from "./constants";
 import { doDueDateInput } from "./constants";
+import { errorDialogOK } from "./constants";
+import { hideErrorDialog } from "./dom_interaction";
 // //////////////////////////////////////////////////////////////////
 
 
@@ -65,3 +67,7 @@ confirmNoBtn.addEventListener("click", () => {
 searchInput.addEventListener("input", () => {
     displayNotesFunc(sortDropDown.value, searchInput.value);
 });
+
+errorDialogOK.addEventListener("click", () =>{
+    hideErrorDialog();
+})
